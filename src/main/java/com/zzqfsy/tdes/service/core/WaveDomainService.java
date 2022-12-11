@@ -7,6 +7,7 @@ import com.zzqfsy.tdes.dto.WaveCreateDTO;
 import com.zzqfsy.tdes.repository.core.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class WaveDomainService {
@@ -20,6 +21,7 @@ public class WaveDomainService {
     @Autowired
     private TaskDetailRepository taskDetailRepository;
 
+    @Transactional
     public void create(WaveCreateDTO waveCreateDTO){
         waveCreateDTO.getWaveDO().setWaveStatus(WaveStatusType.READY.getStatus());
         waveRepository.save(waveCreateDTO.getWaveDO());

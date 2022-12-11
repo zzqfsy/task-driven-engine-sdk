@@ -1,3 +1,5 @@
+-- ALTER USER sa SET PASSWORD ''
+
 -- delete from tdes_sku;
 create table if not exists tdes_sku (
     id bigint not null primary key auto_increment,
@@ -5,6 +7,14 @@ create table if not exists tdes_sku (
     warehouse_code varchar(200),
     sku_code varchar(200),
     sku_name varchar(500)
+);
+
+create table if not exists tdes_hu (
+                                        id bigint not null primary key auto_increment,
+                                        tenant_code varchar(200),
+                                        warehouse_code varchar(200),
+                                        sku_code varchar(200),
+                                        sku_name varchar(500)
 );
 
 -- delete from tdes_wave;
